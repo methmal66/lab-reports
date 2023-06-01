@@ -16,7 +16,7 @@ Run the service
 $ sudo systemctl enable --now postgresql
 $ systemctl status postgresql
 ```
-![[Pasted image 20230510083338.png]]
+![](https://i.imgur.com/Vgt1L2F.png)
 >[!important]- Default data directory
 >`/var/lib/pgsql/data`
 
@@ -26,9 +26,9 @@ $ sudo firewall-cmd --add-port=5432/tcp --permanent
 $ sudo firewall-cmd --reload
 $ sudo firewall-cmd --list-ports
 ```
-![[Pasted image 20230510085329.png]]
+![](https://i.imgur.com/Xevmk3q.png)
 Using a remote client to check if the port is open using [[nmap]]
-![[Pasted image 20230510085743.png]]
+![](https://i.imgur.com/hACahBu.png)
 # Post installation
 To enable password authentication on remote connections, change the `ident` to `md5` and ipv4 host to listen from any address as the final config file is shown below
 ```
