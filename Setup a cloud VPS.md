@@ -62,7 +62,7 @@ Then ssh into the remote instance. This will not prompt for the methmal's passwo
 ```Local
 $ ssh -i ~/.ssh/centos-desktop methmal@35.244.22.48
 ```
-![[Pasted image 20230507194642.png]]
+![](https://i.imgur.com/M2VsT7P.png)
 Add the default ssh config for our cloud instance
 ```Local
 $ sudo vi ~/.ssh/config
@@ -79,15 +79,14 @@ Then you can ssh into the server by just using the alias we provided
 ```Local
 $ ssh rhel-desktop
 ```
-![[Pasted image 20230507194532.png]]
+![](https://i.imgur.com/uaa4f9d.png)
 Register system under redhat
 ```Remote
 $ sudo dnf install -y subscription-manager
 $ sudo subscription-manager register --username "Methmal66" --password "jephy9-Dykmut-dujgud"
 $ sudo subscription-manager identity
 ```
-![[Pasted image 20230507194424.png]]
-
+![](https://i.imgur.com/VywIWSf.png)
 # Install desktop environment
 
 
@@ -123,8 +122,10 @@ Start xrdp server
 $ sudo systemctl enable --now xrdp
 $ systemctl status xrdp
 ```
-![[Pasted image 20230507185131.png]]
+![](https://i.imgur.com/ewvXfjG.png)
+
 Install Microsoft Remote Desktop in local system. Then connect to the remote system as below.
-![[Pasted image 20230507185615.png]]
+![](https://i.imgur.com/1jEYGyv.png)
 Rememer to adjust the display resolution as you prefered
-![[Pasted image 20230507190914.png]]
+![](https://i.imgur.com/rALXyfy.png)
+
