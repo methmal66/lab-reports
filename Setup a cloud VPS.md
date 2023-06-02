@@ -16,70 +16,9 @@ Firewall rules :
 	* Allow RDP
 ```
 
-# Setup SSH access
-Login to the remote instance via the cloud shell and create a sudo user as methmal. Edit the sudoers file as below to grant all privillage to the sudo group
-```Remote
-$ su root
-$ groupadd sudo
-$ useradd methmal
-$ passwd methmal
-$ usermod methmal -aG sudo 
-$ chmod u+x /etc/sudoers
-$ vi /etc/sudoers
-```
+Setup SSH access into that as described below
+[[SSH into a cloud VPS]]
 
-```
-%sudo   ALL=(ALL)       ALL
-```
-
-Then edit the ssh config file to enable password authentication and allow users. Uncomment or add the below two lines
-```Remote
-$ vi /etc/ssh/sshd_config
-```
-
-```
-PasswordAuthentication yes
-AllowUsers methmal
-```
-
-Create a new ssh key in the local machine
-```Local
-$ ssh-keygen -f ~/.ssh/rhel-desktop -P ""
-```
-
-Transfer the public key to the remote instance
-```Local
-$ ssh-copy-id -i ~/.ssh/rhel-desktop.pub methmal@35.244.22.48
-```
-
->[!warning]- One public key per user
->Suppose you are accesing the server from a cloud shell, it still read you by your os. So you cant add another key to ssh with a third party client. But, you can force the new key to replace the old key. In that case, you lose access from the already existing cloud shell. Following is the command
-``` Local
-$ ssh-copy-id -i ~/.ssh/rhel-desktop.pub -f methmal@35.244.22.48
-```
-
-Then ssh into the remote instance. This will not prompt for the methmal's password
-```Local
-$ ssh -i ~/.ssh/centos-desktop methmal@35.244.22.48
-```
-![](https://i.imgur.com/M2VsT7P.png)
-Add the default ssh config for our cloud instance
-```Local
-$ sudo vi ~/.ssh/config
-```
-
-```
-Host rhel-desktop
-HostName 34.125.220.126
-User methmal
-IdentityFile ~/.ssh/rhel-desktop
-```
-
-Then you can ssh into the server by just using the alias we provided
-```Local
-$ ssh rhel-desktop
-```
-![](https://i.imgur.com/uaa4f9d.png)
 Register system under redhat
 ```Remote
 $ sudo dnf install -y subscription-manager
