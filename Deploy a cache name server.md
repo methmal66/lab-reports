@@ -34,7 +34,7 @@ Then test the connection inside the localhost
 ```
 $ sudo dig @localhost google.com
 ```
-![](https://i.imgur.com/E46zrmD.png)
+![](https://i.imgur.com/upqycHU.png)
 Run the command again and notice the query time. Because of the cached entry, further requests for the same record are significantly faster until the entry expires.
 ![](https://i.imgur.com/Wf4rwdk.png)
 
